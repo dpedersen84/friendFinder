@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
 
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
@@ -23,7 +24,7 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/survey">Survey</a></li>
             <li><a href="/api/friends">Friends API</a></li>
-            <li><a href="">Github Repo</a></li>
+            <li><a href="https://github.com/dpedersen84/friendFinder">Github Repo</a></li>
             </ul>
         </div>
     </nav>
@@ -482,3 +483,16 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+
+    $("#findFriend").on("click", function(event) {
+        event.preventDefault();
+
+        console.log("Event is working!");
+    })
+
+
+
+
+</script>
