@@ -27,3 +27,8 @@ app.listen(PORT, function() {
 // ==========================================================
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
+
+// Background Image
+// ==========================================================
+// app.use(express.static(__dirname + "/public"));
+
