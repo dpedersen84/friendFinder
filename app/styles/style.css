@@ -1,6 +1,10 @@
 body {
-    background-image: url("../data/pexels-photo-1000445.jpeg");
+    
     font-family: 'Gothic A1', sans-serif;
 
+}
+
+.background-style {
+    background-image: url("../data/pexels-photo-1000445.jpeg");
 }
 
