@@ -1,10 +1,23 @@
 
-// Constructor for friends data
-// Will this work?
+// Data
 // ==============================================================
-function Friends(name, photo, scores) {
-    this.name = name;
-    this.photo = photo;
-    this.scores = [];
+var friendsArray = [
+    {
+        "name": "Ahmed",
+        "photo": "",
+        "scores": [
+            5,
+            2,
+            1,
+            5,
+            5,
+            5,
+            5,
+            2,
+            2,
+            5
+        ]
+    }
+];    
 
-};
+module.exports = friendsArray;
