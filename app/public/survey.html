@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 
-<body>
+<body class="text">
     <nav>
         <div class="nav-wrapper grey darken-4">
             <a></a>
@@ -55,7 +55,7 @@
                 <!-- Questions -->
                 <div class="row">
                     <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
-                    <div class="input-field col s2 qOne">
+                    <div class="input-field col s3 qOne">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="row">
                     <h5>Generally speaking, you rely more on your experience than your imagination.</h5>
-                    <div class="input-field col s2 qTwo">
+                    <div class="input-field col s3 qTwo">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="row">
                     <h5>You find it easy to stay relaxed and focused even when there is some pressure.</h5>
-                    <div class="input-field col s2 qThree">
+                    <div class="input-field col s3 qThree">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="row">
                     <h5>You rarely do something just out of sheer curiosity.</h5>
-                    <div class="input-field col s2 qFour">
+                    <div class="input-field col s3 qFour">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="row">
                     <h5>People can rarely upset you.</h5>
-                    <div class="input-field col s2 qFive">
+                    <div class="input-field col s3 qFive">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="row">
                     <h5>It is often difficult for you to relate to other people’s feelings.</h5>
-                    <div class="input-field col s2 qSix">
+                    <div class="input-field col s3 qSix">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="row">
                     <h5>In a discussion, truth should be more important than people’s sensitivities.</h5>
-                    <div class="input-field col s2 qSeven">
+                    <div class="input-field col s3 qSeven">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="row">
                     <h5>You rarely get carried away by fantasies and ideas.</h5>
-                    <div class="input-field col s2 qEight">
+                    <div class="input-field col s3 qEight">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="row">
                     <h5>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
-                    <div class="input-field col s2 qNine">
+                    <div class="input-field col s3 qNine">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="row">
                     <h5>You feel more energetic after spending time with a group of people.</h5>
-                    <div class="input-field col s2 qTen">
+                    <div class="input-field col s3 qTen">
                         <select>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
@@ -216,13 +216,13 @@
     $("#findFriend").on("click", function(event) {
         event.preventDefault();
         
-        // var instance = M.FormSelect.getInstance(elem);
+        var instance = M.FormSelect.getInstance(elem);
 
         let name = $("#name").val();
         console.log(name);
         let image = $("#image").val();
         console.log(image);
-        let answers = $("#qTwo").val();
+        let answers = instance.getSelectedValues();
         console.log(answers);
 
     })

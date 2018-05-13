@@ -39,5 +39,5 @@ require("./app/routing/htmlRoutes")(app);
 
 // Background Image
 // ==========================================================
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static("app/public"));
 

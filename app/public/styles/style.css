@@ -1,6 +1,7 @@
-body {
+.text {
     font-family: 'Gothic A1', sans-serif;
 }
-/* body {
+body {
     background-image: url("../images/pexels-photo-1000445.jpeg");
-} */
+    font-family: 'Gothic A1', sans-serif;
+}
