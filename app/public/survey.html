@@ -12,9 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
     <!-- <link rel="stylesheet" href="styles/style.css"> -->
 
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    
 </head>
 
 <body class="text">
@@ -208,63 +206,74 @@
 </body>
 </html>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script type="text/javascript">
-
     $(document).ready(function(){
-    $('select').formSelect();
-
-    $("#findFriendOld").on("click", function(event) {
-        event.preventDefault();
         
-        let name = $("#name").val();
-        console.log(name);
-
-        name = name.replace(/\s+/g, "").toLowerCase();
-
-        let image = $("#image").val();
-        console.log(image);
-
-        $.get("/api/friends/" + name, function(data) {
-            
-            // Console log the data from apiRoutes
-            console.log(data.name);
-            console.log(data.scores);
-        })
-
-        // let answers = instance.getSelectedValues();
-        // console.log(answers);
-
-    })
-
-    $("#findFriend").on("click", function(event) {
         
-        let aOne = parseInt($("#qOne").val());
-        let aTwo = parseInt($("#qTwo").val());
-        let aThree = parseInt($("#qThree").val());
-        let aFour = parseInt($("#qFour").val());
-        let aFive = parseInt($("#qFive").val());
-        let aSix = parseInt($("#qSix").val());
-        let aSeven = parseInt($("#qSeven").val());
-        let aEight = parseInt($("#qEight").val());
-        let aNine = parseInt($("#qNine").val());
-        let aTen = parseInt($("#qTen").val());
+        $('select').formSelect();
 
-        // console.log(aOne);
+        $("#findFriend").on("click", function(event) {
+            compareFriends();
+            let aOne = parseInt($("#qOne").val());
+            let aTwo = parseInt($("#qTwo").val());
+            let aThree = parseInt($("#qThree").val());
+            let aFour = parseInt($("#qFour").val());
+            let aFive = parseInt($("#qFive").val());
+            let aSix = parseInt($("#qSix").val());
+            let aSeven = parseInt($("#qSeven").val());
+            let aEight = parseInt($("#qEight").val());
+            let aNine = parseInt($("#qNine").val());
+            let aTen = parseFloat($("#qTen").val());
+
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#image").val().trim(),
+                scores: 
+                    [ 
+                        aOne, aTwo, aThree, aFour, aFive, aSix, aSeven, aEight, aNine, aTen    
+                    ]
+            };
+
+            $.post("/api/friends", newFriend) 
+                .then(function(data) {
+                    console.log(data);
+                    console.log("New Friend Scores: " + data.scores);
+                })
         
-        var newFriend = {
-            name: $("#name").val().trim(),
-            photo: $("#image").val().trim(),
-            scores: 
-            [ aOne, aTwo, aThree, aFour, aFive, aSix, aSeven, aEight, aNine, aTen    
-            ]
-        };
+        
+        
+        
+        
+        
+        
+        
+        });
+    });
 
-        $.post("/api/friends", newFriend) 
-            .then(function(data) {
-                console.log(data);
+    function compareFriends() {
+
+        let url = window.location.origin;
+        // console.log(url);
+
+        $.ajax({ url: url + "/api/friends", method: "GET" })
+            .then(function(friendData) {
+                
+
+                console.log("URL: " + url + "api/friends");
+                console.log("----------------------------");
+                console.log(friendData);
+                console.log("----------------------------");
+                
+                for(let i = 0; i < friendData.length; i++) {
+                    console.log(friendData[i].scores)
+                }
             })
-    })
-})
+    };
+
+        // compareFriends();
+
 
 
 </script>

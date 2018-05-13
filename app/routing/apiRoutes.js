@@ -50,4 +50,8 @@ module.exports = function(app) {
         // Formats data
         res.json(newfriend);
     })
+
+    app.get("/api/result", function(req, res) {
+        
+    })
 };
