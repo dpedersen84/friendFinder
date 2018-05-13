@@ -180,7 +180,7 @@
                 <div class="row">
                     <h5>You feel more energetic after spending time with a group of people.</h5>
                     <div class="input-field col s3">
-                        <select id="qTen">
+                        <select id="qTen" required>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -200,14 +200,12 @@
             </form>    
     </div>
 
-
-
-
 </body>
 </html>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function(){
         
@@ -216,16 +214,16 @@
 
         $("#findFriend").on("click", function(event) {
             compareFriends();
-            let aOne = parseInt($("#qOne").val());
-            let aTwo = parseInt($("#qTwo").val());
-            let aThree = parseInt($("#qThree").val());
-            let aFour = parseInt($("#qFour").val());
-            let aFive = parseInt($("#qFive").val());
-            let aSix = parseInt($("#qSix").val());
-            let aSeven = parseInt($("#qSeven").val());
-            let aEight = parseInt($("#qEight").val());
-            let aNine = parseInt($("#qNine").val());
-            let aTen = parseFloat($("#qTen").val());
+            let aOne = $("#qOne").val();
+            let aTwo = $("#qTwo").val();
+            let aThree = $("#qThree").val();
+            let aFour = $("#qFour").val();
+            let aFive = $("#qFive").val();
+            let aSix = $("#qSix").val();
+            let aSeven = $("#qSeven").val();
+            let aEight = $("#qEight").val();
+            let aNine = $("#qNine").val();
+            let aTen = $("#qTen").val();
 
             var newFriend = {
                 name: $("#name").val().trim(),
@@ -235,20 +233,11 @@
                         aOne, aTwo, aThree, aFour, aFive, aSix, aSeven, aEight, aNine, aTen    
                     ]
             };
-
             $.post("/api/friends", newFriend) 
                 .then(function(data) {
                     console.log(data);
                     console.log("New Friend Scores: " + data.scores);
                 })
-        
-        
-        
-        
-        
-        
-        
-        
         });
     });
 
@@ -271,9 +260,5 @@
                 }
             })
     };
-
-        // compareFriends();
-
-
 
 </script>
