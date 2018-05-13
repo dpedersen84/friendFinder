@@ -1,13 +1,13 @@
 /* Default text style */
-.text {
-    font-family: 'Gothic A1', sans-serif;
+.bg-image {
+    background-image: url("../images/pexels-photo-1000445.jpeg");
 }
 body {
-    background-image: url("../images/pexels-photo-1000445.jpeg");
+    
     font-family: 'Gothic A1', sans-serif;
 }
-.motto {
-    color: white;
-    font-family: 'Maven Pro', sans-serif;
+
+.brand-logo {
+    font-family: 'Anton', sans-serif;
 
 }

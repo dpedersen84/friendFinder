@@ -14,24 +14,10 @@ module.exports = function(app) {
     // Route to specific friend
     app.get("/api/friends/:friend", function(req, res) {
         let friendSelection = req.params.friend;
-        console.log (friendSelection);
-
-        // res.json(friendSelection)
-
         for(var i = 0; i < friends.length; i++) {
             if (friendSelection === friends[i].routeName) {
 
-                // let name = friends[i].name;
-                // let image = friends[i].image;
-                friendName = friends[i].name;
                 return res.json(friends[i]);
-                // return res.console(name)
-
-                // for(var i = 0; i < friendName.scores.length; i++) {
-
-                //     console.log(scores[i]);
-                    
-                // }
             }
         }
         return res.json(false);
@@ -42,8 +28,9 @@ module.exports = function(app) {
         let newfriend = req.body;
 
         newfriend.routeName = newfriend.name.replace(/\s+/g, "").toLowerCase();
+        // New friend scores are coming back as individual strings
         console.log(newfriend.scores) // strings
-
+        // Convert new friend scores into integers
         newfriend.scores = newfriend.scores.map(function(x) {
             return parseInt(x)
         })
@@ -51,7 +38,28 @@ module.exports = function(app) {
         console.log(newfriend.scores); // numbers
 
         // Adds new friend to the array
-        friends.push(newfriend);    
+        friends.push(newfriend);
+        
+        for(var i = 0; i < friends.length; i++) {
+            if (newfriend === friends[i][friends.length - 1]) {
+                console.log("no");
+            }
+            else {
+                let yourScores = newfriend.scores;
+                let friendName = friends[i].name;
+                let friendScores = friends[i].scores;
+
+                let result = friendScores.map(function(value, index) {
+                    return Math.abs(value - yourScores[index]);
+                })
+
+                console.log("Friend: " + friendName + "\nScores " + result);
+            }
+        }
+
+        console.log(friends[friends.length - 1]);
+
+
         // Formats data
         res.json(newfriend);
     })

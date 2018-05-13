@@ -10,17 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 
     
 </head>
 
-<body class="text">
+<body>
     <nav>
         <div class="nav-wrapper grey darken-4">
-            <a></a>
+            <a href="#" class="brand-logo">FriendFinder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/survey">Survey</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/api/friends">Friends API</a></li>
             <li><a href="https://github.com/dpedersen84/friendFinder">Github Repo</a></li>
             </ul>
@@ -52,7 +53,7 @@
                 </div>
                 <!-- Questions -->
                 <div class="row">
-                    <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
+                    <h5>1. Your mind is always buzzing with unexplored ideas and plans.</h5>
                     <div class="input-field col s3">
                         <select id="qOne">
                             <option value="" disabled selected>Choose your option</option>
@@ -62,11 +63,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>Generally speaking, you rely more on your experience than your imagination.</h5>
+                    <h5>2. Generally speaking, you rely more on your experience than your imagination.</h5>
                     <div class="input-field col s3">
                         <select id="qTwo">
                             <option value="" disabled selected>Choose your option</option>
@@ -76,11 +76,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>You find it easy to stay relaxed and focused even when there is some pressure.</h5>
+                    <h5>3. You find it easy to stay relaxed and focused even when there is some pressure.</h5>
                     <div class="input-field col s3">
                         <select id="qThree">
                             <option value="" disabled selected>Choose your option</option>
@@ -90,11 +89,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>You rarely do something just out of sheer curiosity.</h5>
+                    <h5>4. You rarely do something just out of sheer curiosity.</h5>
                     <div class="input-field col s3">
                         <select id="qFour">
                             <option value="" disabled selected>Choose your option</option>
@@ -104,11 +102,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>People can rarely upset you.</h5>
+                    <h5>5. People can rarely upset you.</h5>
                     <div class="input-field col s3">
                         <select id="qFive">
                             <option value="" disabled selected>Choose your option</option>
@@ -118,11 +115,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>It is often difficult for you to relate to other people’s feelings.</h5>
+                    <h5>6. It is often difficult for you to relate to other people’s feelings.</h5>
                     <div class="input-field col s3">
                         <select id="qSix">
                             <option value="" disabled selected>Choose your option</option>
@@ -132,11 +128,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>In a discussion, truth should be more important than people’s sensitivities.</h5>
+                    <h5>7. In a discussion, truth should be more important than people’s sensitivities.</h5>
                     <div class="input-field col s3">
                         <select id="qSeven">
                             <option value="" disabled selected>Choose your option</option>
@@ -146,11 +141,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>You rarely get carried away by fantasies and ideas.</h5>
+                    <h5>8. You rarely get carried away by fantasies and ideas.</h5>
                     <div class="input-field col s3">
                         <select id="qEight">
                             <option value="" disabled selected>Choose your option</option>
@@ -160,11 +154,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
+                    <h5>9. You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
                     <div class="input-field col s3">
                         <select id="qNine">
                             <option value="" disabled selected>Choose your option</option>
@@ -174,11 +167,10 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <div class="row">
-                    <h5>You feel more energetic after spending time with a group of people.</h5>
+                    <h5>10. You feel more energetic after spending time with a group of people.</h5>
                     <div class="input-field col s3">
                         <select id="qTen" required>
                             <option value="" disabled selected>Choose your option</option>
@@ -188,7 +180,6 @@
                             <option value="4">4</option>
                             <option value="5">5 - Strongly Agree</option>
                         </select>
-                        <!-- <label>Materialize Select</label> -->
                     </div>
                 </div>
                 <!-- Submit Button -->
@@ -200,12 +191,8 @@
             </form>    
     </div>
 
-</body>
-</html>
-
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
 <script type="text/javascript">
     $(document).ready(function(){
         
@@ -235,6 +222,7 @@
             };
             $.post("/api/friends", newFriend) 
                 .then(function(data) {
+                    // Data of new friend
                     console.log(data);
                     console.log("New Friend Scores: " + data.scores);
                 })
@@ -262,3 +250,8 @@
     };
 
 </script>
+</body>
+</html>
+
+<!-- To Do -->
+<!-- Forms can't be left empty -->
