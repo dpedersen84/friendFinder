@@ -21,6 +21,9 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Sets up Express to use public folder to access images/styles
+app.use(express.static("app/public"));
+
 // =============================================================================
 // LISTENER
 // The below code effectively "starts" our server
@@ -36,8 +39,4 @@ app.listen(PORT, function() {
 // ================================================================================
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
-
-// Background Image
-// ==========================================================
-app.use(express.static("app/public"));
 

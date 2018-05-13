@@ -29,40 +29,44 @@ module.exports = function(app) {
 
         newfriend.routeName = newfriend.name.replace(/\s+/g, "").toLowerCase();
         // New friend scores are coming back as individual strings
-        console.log(newfriend.scores) // strings
+        // console.log(newfriend.scores); // strings
         // Convert new friend scores into integers
         newfriend.scores = newfriend.scores.map(function(x) {
             return parseInt(x)
         })
 
-        console.log(newfriend.scores); // numbers
+        // console.log(newfriend.scores); // numbers
 
         // Adds new friend to the array
         friends.push(newfriend);
         
-        for(var i = 0; i < friends.length; i++) {
+        let yourName = newfriend.name;
+        let yourResults = newfriend.scores;
+        
+        console.log("New Friend: " + yourName + "\nResults: " + yourResults)
+
+
+        for (var i = 0; i < friends.length; i++) {
             
-            let yourScores = newfriend.scores;
             let friendName = friends[i].name;
-            let friendScores = friends[i].scores;
+            let friendResults = friends[i].scores;
 
-            let result = friendScores.map(function(value, index) {
-                return Math.abs(value - yourScores[index]);
+            let resultsDifference = friendResults.map(function(value, index) {
+                return Math.abs(value - yourResults[index]);
             })
-
-            console.log("Friend: " + friendName + "\nDifferences " + result);
+            
+            console.log("Friend: " + friendName + "\nFriend Results: " + friendResults + "\nResults Differences: " + resultsDifference);
 
             function getSum(total, num) {
                 return total + num;
             }
 
-            let difference = result.reduce(getSum)
-            console.log("Total Difference: " + difference )
+            let totalResultsDifference = resultsDifference.reduce(getSum)
+            console.log("Total Results Difference: " + totalResultsDifference )
             
         };
 
-        console.log(friends[friends.length - 1]);
-
+        // console.log(friends[friends.length - 1]);
 
         // Formats data
         res.json(newfriend);
@@ -70,7 +74,6 @@ module.exports = function(app) {
 
     // Testing different ways to get the difference in scores between friends
     // ====================================================================================
-
     // test
     app.get("/test", function(req, res) {
 
@@ -83,11 +86,9 @@ module.exports = function(app) {
             return Math.abs(value - user1[index]);
 
         });
-
         console.log(result);
         res.json(result);
-    })
-
+    });
     // test 2
     app.get("/test2", function(req, res) {
 
@@ -99,11 +100,9 @@ module.exports = function(app) {
 
         for (let i = 0; i < user2.length; i++) {
             result.push(Math.abs(user2[i] - user1[i]));
-        }
-
+        };
         console.log(result);
         res.json(result);
-
-    })
+    });
 
 };
