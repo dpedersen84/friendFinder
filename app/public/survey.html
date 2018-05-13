@@ -55,8 +55,8 @@
                 <!-- Questions -->
                 <div class="row">
                     <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
-                    <div class="input-field col s3 qOne">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qOne">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -69,8 +69,8 @@
                 </div>
                 <div class="row">
                     <h5>Generally speaking, you rely more on your experience than your imagination.</h5>
-                    <div class="input-field col s3 qTwo">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qTwo">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -83,8 +83,8 @@
                 </div>
                 <div class="row">
                     <h5>You find it easy to stay relaxed and focused even when there is some pressure.</h5>
-                    <div class="input-field col s3 qThree">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qThree">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -97,8 +97,8 @@
                 </div>
                 <div class="row">
                     <h5>You rarely do something just out of sheer curiosity.</h5>
-                    <div class="input-field col s3 qFour">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qFour">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -111,8 +111,8 @@
                 </div>
                 <div class="row">
                     <h5>People can rarely upset you.</h5>
-                    <div class="input-field col s3 qFive">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qFive">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -125,8 +125,8 @@
                 </div>
                 <div class="row">
                     <h5>It is often difficult for you to relate to other people’s feelings.</h5>
-                    <div class="input-field col s3 qSix">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qSix">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -139,8 +139,8 @@
                 </div>
                 <div class="row">
                     <h5>In a discussion, truth should be more important than people’s sensitivities.</h5>
-                    <div class="input-field col s3 qSeven">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qSeven">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -153,8 +153,8 @@
                 </div>
                 <div class="row">
                     <h5>You rarely get carried away by fantasies and ideas.</h5>
-                    <div class="input-field col s3 qEight">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qEight">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -167,8 +167,8 @@
                 </div>
                 <div class="row">
                     <h5>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
-                    <div class="input-field col s3 qNine">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qNine">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -181,8 +181,8 @@
                 </div>
                 <div class="row">
                     <h5>You feel more energetic after spending time with a group of people.</h5>
-                    <div class="input-field col s3 qTen">
-                        <select>
+                    <div class="input-field col s3">
+                        <select id="qTen">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="1">1 - Strongly Disagree</option>
                             <option value="2">2</option>
@@ -213,20 +213,57 @@
     $(document).ready(function(){
     $('select').formSelect();
 
-    $("#findFriend").on("click", function(event) {
+    $("#findFriendOld").on("click", function(event) {
         event.preventDefault();
         
-        var instance = M.FormSelect.getInstance(elem);
-
         let name = $("#name").val();
         console.log(name);
+
+        name = name.replace(/\s+/g, "").toLowerCase();
+
         let image = $("#image").val();
         console.log(image);
-        let answers = instance.getSelectedValues();
-        console.log(answers);
+
+        $.get("/api/friends/" + name, function(data) {
+            
+            // Console log the data from apiRoutes
+            console.log(data.name);
+            console.log(data.scores);
+        })
+
+        // let answers = instance.getSelectedValues();
+        // console.log(answers);
 
     })
 
+    $("#findFriend").on("click", function(event) {
+        
+        let aOne = parseInt($("#qOne").val());
+        let aTwo = parseInt($("#qTwo").val());
+        let aThree = parseInt($("#qThree").val());
+        let aFour = parseInt($("#qFour").val());
+        let aFive = parseInt($("#qFive").val());
+        let aSix = parseInt($("#qSix").val());
+        let aSeven = parseInt($("#qSeven").val());
+        let aEight = parseInt($("#qEight").val());
+        let aNine = parseInt($("#qNine").val());
+        let aTen = parseInt($("#qTen").val());
+
+        // console.log(aOne);
+        
+        var newFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#image").val().trim(),
+            scores: 
+            [ aOne, aTwo, aThree, aFour, aFive, aSix, aSeven, aEight, aNine, aTen    
+            ]
+        };
+
+        $.post("/api/friends", newFriend) 
+            .then(function(data) {
+                console.log(data);
+            })
+    })
 })
 
 
