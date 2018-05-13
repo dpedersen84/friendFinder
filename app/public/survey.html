@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FriendFinder - Survey</title>
-
-    <!-- Compiled and minified CSS -->
+    <title>Welcome To FriendFinder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
-
-    
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper grey darken-4">
             <a href="#" class="brand-logo">FriendFinder</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a href="/api/friends">Friends API</a></li>
@@ -27,6 +24,12 @@
             </ul>
         </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/survey">Find Friend</a></li>
+        <li><a href="/api/friends">Friends API</a></li>
+        <li><a href="https://github.com/dpedersen84/friendFinder">Github Repo</a></li>
+    </ul>
 
     <div class="container">
 
@@ -194,64 +197,62 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        
-        
-        $('select').formSelect();
+$(document).ready(function(){
+    
+    $('select').formSelect();
 
-        $("#findFriend").on("click", function(event) {
-            compareFriends();
-            let aOne = $("#qOne").val();
-            let aTwo = $("#qTwo").val();
-            let aThree = $("#qThree").val();
-            let aFour = $("#qFour").val();
-            let aFive = $("#qFive").val();
-            let aSix = $("#qSix").val();
-            let aSeven = $("#qSeven").val();
-            let aEight = $("#qEight").val();
-            let aNine = $("#qNine").val();
-            let aTen = $("#qTen").val();
+    $("#findFriend").on("click", function(event) {
+        compareFriends();
+        let aOne = $("#qOne").val();
+        let aTwo = $("#qTwo").val();
+        let aThree = $("#qThree").val();
+        let aFour = $("#qFour").val();
+        let aFive = $("#qFive").val();
+        let aSix = $("#qSix").val();
+        let aSeven = $("#qSeven").val();
+        let aEight = $("#qEight").val();
+        let aNine = $("#qNine").val();
+        let aTen = $("#qTen").val();
 
-            var newFriend = {
-                name: $("#name").val().trim(),
-                photo: $("#image").val().trim(),
-                scores: 
-                    [ 
-                        aOne, aTwo, aThree, aFour, aFive, aSix, aSeven, aEight, aNine, aTen    
-                    ]
-            };
-            $.post("/api/friends", newFriend) 
-                .then(function(data) {
-                    // Data of new friend
-                    console.log(data);
-                    console.log("New Friend Scores: " + data.scores);
-                })
-        });
-    });
-
-    function compareFriends() {
-
-        let url = window.location.origin;
-        // console.log(url);
-
-        $.ajax({ url: url + "/api/friends", method: "GET" })
-            .then(function(friendData) {
-                
-
-                console.log("URL: " + url + "api/friends");
-                console.log("----------------------------");
-                console.log(friendData);
-                console.log("----------------------------");
-                
-                for(let i = 0; i < friendData.length; i++) {
-                    console.log(friendData[i].scores)
-                }
+        var newFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#image").val().trim(),
+            scores: 
+                [ 
+                    aOne, aTwo, aThree, aFour, aFive, aSix, aSeven, aEight, aNine, aTen    
+                ]
+        };
+        $.post("/api/friends", newFriend) 
+            .then(function(data) {
+                // Data of new friend
+                console.log(data);
+                console.log("New Friend Scores: " + data.scores);
             })
-    };
+    });
+});
+
+// This function can probably be removed
+function compareFriends() {
+
+    let url = window.location.origin;
+
+    $.ajax({ url: url + "/api/friends", method: "GET" })
+        .then(function(friendData) {
+
+            console.log("URL: " + url + "api/friends");
+            console.log("----------------------------");
+            console.log(friendData);
+            console.log("----------------------------");
+            
+            for(let i = 0; i < friendData.length; i++) {
+                console.log(friendData[i].scores)
+            }
+        })
+};
 
 </script>
 </body>
 </html>
 
 <!-- To Do -->
-<!-- Forms can't be left empty -->
+<!-- Make it so the forms can't be left empty -->

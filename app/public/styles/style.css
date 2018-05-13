@@ -1,12 +1,12 @@
-/* Default text style */
+/* Background image for main page */
 .bg-image {
     background-image: url("../images/pexels-photo-1000445.jpeg");
 }
-body {
-    
+/* Default Font */
+body { 
     font-family: 'Gothic A1', sans-serif;
 }
-
+/* Font for Logo */
 .brand-logo {
     font-family: 'Anton', sans-serif;
 

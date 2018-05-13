@@ -14,7 +14,7 @@ module.exports = function(app) {
     // Route to specific friend
     app.get("/api/friends/:friend", function(req, res) {
         let friendSelection = req.params.friend;
-        for(var i = 0; i < friends.length; i++) {
+        for (var i = 0; i < friends.length; i++) {
             if (friendSelection === friends[i].routeName) {
 
                 return res.json(friends[i]);
@@ -23,7 +23,7 @@ module.exports = function(app) {
         return res.json(false);
     });
 
-    // Add new friend
+    // Add new friend and find match
     app.post("/api/friends", function(req, res) {
         let newfriend = req.body;
 
@@ -41,21 +41,25 @@ module.exports = function(app) {
         friends.push(newfriend);
         
         for(var i = 0; i < friends.length; i++) {
-            if (newfriend === friends[i][friends.length - 1]) {
-                console.log("no");
-            }
-            else {
-                let yourScores = newfriend.scores;
-                let friendName = friends[i].name;
-                let friendScores = friends[i].scores;
+            
+            let yourScores = newfriend.scores;
+            let friendName = friends[i].name;
+            let friendScores = friends[i].scores;
 
-                let result = friendScores.map(function(value, index) {
-                    return Math.abs(value - yourScores[index]);
-                })
+            let result = friendScores.map(function(value, index) {
+                return Math.abs(value - yourScores[index]);
+            })
 
-                console.log("Friend: " + friendName + "\nScores " + result);
+            console.log("Friend: " + friendName + "\nDifferences " + result);
+
+            function getSum(total, num) {
+                return total + num;
             }
-        }
+
+            let difference = result.reduce(getSum)
+            console.log("Total Difference: " + difference )
+            
+        };
 
         console.log(friends[friends.length - 1]);
 
@@ -63,6 +67,9 @@ module.exports = function(app) {
         // Formats data
         res.json(newfriend);
     })
+
+    // Testing different ways to get the difference in scores between friends
+    // ====================================================================================
 
     // test
     app.get("/test", function(req, res) {
