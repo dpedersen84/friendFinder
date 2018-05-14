@@ -3,9 +3,9 @@
 This application is a best friend finder made using Express and jQuery.
 
 **NPM Packages Used**
-    1. Express
-    2. Body-Parser
-    3. Path
+1. Express
+2. Body-Parser
+3. Path
 
 Take the survey and see who your best friend is!
 
