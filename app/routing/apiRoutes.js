@@ -25,65 +25,65 @@ module.exports = function(app) {
 
     // Add new friend and find match
     app.post("/api/friends", function(req, res) {
-        let newfriend = req.body;
+        // Capture new friend object
+        let newFriend = req.body;
 
-        newfriend.routeName = newfriend.name.replace(/\s+/g, "").toLowerCase();
+        // Create routename value
+        newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
+
         // New friend scores are coming back as individual strings
-        // console.log(newfriend.scores); // strings
         // Convert new friend scores into integers
-        newfriend.scores = newfriend.scores.map(function(x) {
+        newFriend.scores = newFriend.scores.map(function(x) {
             return parseInt(x)
         })
 
-        // console.log(newfriend.scores); // numbers
-
         // Adds new friend to the array
-        friends.push(newfriend);
+        friends.push(newFriend);
         
-        let yourName = newfriend.name;
-        let yourResults = newfriend.scores;
+        // Create simple variables for organization
+        let userName = newFriend.name;
+        let userResults = newFriend.scores;
         
-        console.log("New Friend: " + yourName + "\nResults: " + yourResults)
+        console.log("New Friend: " + userName + "\nResults: " + userResults)
 
+        // Compute best friend match
+        let matchName = "";
+        let matchImage = "";
+        let totalDifference = 400; // Max difference possible 
 
+        // Loop through existing friends
         for (var i = 0; i < friends.length; i++) {
             
+            // Variables for readability
             let friendName = friends[i].name;
             let friendResults = friends[i].scores;
-
-            let resultsDifference = friendResults.map(function(value, index) {
-                return Math.abs(value - yourResults[index]);
-            });
             
-            console.log("Friend: " + friendName + "\nFriend Results: " + friendResults + "\nResults Differences: " + resultsDifference);
+            // Loop through data to compute differences for each question
+            let diff = 0
+            for (var j = 0; j < userResults.length; j++) {
+                diff += Math.abs(friends[i].scores[j] - userResults[j]);
 
-            function getSum(total, num) {
-                return total + num;
-            };
+            }
 
-            let totalResultsDifference = resultsDifference.reduce(getSum);
-            console.log("Total Results Difference: " + totalResultsDifference);
+            // Get best match
+            if (newFriend.routeName != friends[i].routeName) {
+                if (diff < totalDifference) {
+                    console.log("Closest Match = " + diff)
+                    
+                    totalDifference = diff;
+                    matchName = friends[i].name
+                    matchImage = friends[i].photo
 
-            let bestFriendIndex = -1;
-            let bestScore = 50;
-            let worstScore = 10;
-            let maxDifference = 40;
+                    console.log("Friend Name: " + friends[i].name)
+                    console.log("Friend Image: " + friends[i].photo)
 
-            if (newfriend.routeName != friends[i].routeName) {
-                if(totalResultsDifference < bestScore) {
-                    bestScore = totalResultsDifference;
-                    bestFriendIndex = i;
                 }
-
-                console.log(bestFriendIndex);
             }
             
         };
 
-        // console.log(friends[friends.length - 1]);
-
-        // Formats data
-        res.json(newfriend);
+        // Send data
+        res.json({matchName: matchName, matchImage: matchImage});
     })
 
     // Testing different ways to get the difference in scores between friends
