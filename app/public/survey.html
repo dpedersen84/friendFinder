@@ -26,7 +26,7 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="/survey">Find Friend</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/api/friends">Friends API</a></li>
         <li><a href="https://github.com/dpedersen84/friendFinder">Github Repo</a></li>
     </ul>
@@ -188,10 +188,23 @@
                 <!-- Submit Button -->
                 <div class="row">
                     <div class="col s2">
-                        <a class="waves-effect grey darken-4 btn" id="findFriend"><i class="material-icons right">person</i>Find Friend!</a>
+                        <button data-target="modal1" class="waves-effect grey darken-4 btn modal-trigger" id="findFriend"><i class="material-icons right">person</i>Find Friend!</button>
                     </div>
                 </div>
             </form>    
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Your Best Friend Is...</h4>
+            <br>
+            <div id="resultImage"></div>
+            <h5 id="resultName"></h5>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
     </div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -200,9 +213,10 @@
 $(document).ready(function(){
     
     $('select').formSelect();
+    $('.modal').modal();
 
     $("#findFriend").on("click", function(event) {
-        compareFriends();
+
         let aOne = $("#qOne").val();
         let aTwo = $("#qTwo").val();
         let aThree = $("#qThree").val();
@@ -228,6 +242,24 @@ $(document).ready(function(){
                 console.log(data);
                 console.log("New Friend Scores: " + data.scores);
             })
+
+        let url = window.location.origin;
+
+        $.ajax({ url: url + "/api/friends", method: "GET" })
+            .then(function(friendData) {
+
+                console.log("URL: " + url + "api/friends");
+                console.log("----------------------------");
+                console.log(friendData);
+                console.log("----------------------------");
+        
+                for(let i = 0; i < friendData.length; i++) {
+                    console.log(friendData[i].scores)
+                }
+                
+                $('#resultName').prepend(friendData[2].name);
+                $('#resultImage').prepend($('<img>', {id:'theImg',src:friendData[2].photo}))
+            })
     });
 });
 
@@ -247,6 +279,8 @@ function compareFriends() {
             for(let i = 0; i < friendData.length; i++) {
                 console.log(friendData[i].scores)
             }
+
+            $('#result').prepend($('<img>',{id:'theImg',src:friendData[2].photo}))
         })
 };
 

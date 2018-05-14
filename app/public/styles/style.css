@@ -9,5 +9,8 @@ body {
 /* Font for Logo */
 .brand-logo {
     font-family: 'Anton', sans-serif;
+}
 
+#theImg {
+    max-height: 400px;
 }

@@ -53,16 +53,30 @@ module.exports = function(app) {
 
             let resultsDifference = friendResults.map(function(value, index) {
                 return Math.abs(value - yourResults[index]);
-            })
+            });
             
             console.log("Friend: " + friendName + "\nFriend Results: " + friendResults + "\nResults Differences: " + resultsDifference);
 
             function getSum(total, num) {
                 return total + num;
-            }
+            };
 
-            let totalResultsDifference = resultsDifference.reduce(getSum)
-            console.log("Total Results Difference: " + totalResultsDifference )
+            let totalResultsDifference = resultsDifference.reduce(getSum);
+            console.log("Total Results Difference: " + totalResultsDifference);
+
+            let bestFriendIndex = -1;
+            let bestScore = 50;
+            let worstScore = 10;
+            let maxDifference = 40;
+
+            if (newfriend.routeName != friends[i].routeName) {
+                if(totalResultsDifference < bestScore) {
+                    bestScore = totalResultsDifference;
+                    bestFriendIndex = i;
+                }
+
+                console.log(bestFriendIndex);
+            }
             
         };
 

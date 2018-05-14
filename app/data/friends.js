@@ -5,7 +5,7 @@ var friendsArray = [
     {
         routeName: "marilyn",
         name: "Marilyn",
-        photo: "https://www.pexels.com/photo/adult-attractive-beautiful-beauty-415829/",
+        photo: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             5,
             2,
@@ -22,7 +22,7 @@ var friendsArray = [
     {
         routeName: "frank",
         name: "Frank",
-        photo: "https://www.pexels.com/photo/man-wearing-black-shirt-831993/",
+        photo: "https://images.pexels.com/photos/831993/pexels-photo-831993.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             5,
             5,
@@ -39,7 +39,7 @@ var friendsArray = [
     {
         routeName: "cher",
         name: "Cher",
-        photo: "https://www.pexels.com/photo/adolescence-attractive-beautiful-blur-573299/",
+        photo: "https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             3,
             1,
@@ -56,7 +56,7 @@ var friendsArray = [
     {
         routeName: "tupac",
         name: "Tupac",
-        photo: "https://www.pexels.com/photo/adult-beard-boy-casual-220453/",
+        photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             3,
             4,
@@ -73,7 +73,7 @@ var friendsArray = [
     {
         routeName: "madonna",
         name: "Madonna",
-        photo: "https://www.pexels.com/photo/adult-beautiful-blonde-blur-324658/",
+        photo: "https://images.pexels.com/photos/324658/pexels-photo-324658.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             3,
             2,
@@ -90,7 +90,7 @@ var friendsArray = [
     {
         routeName: "prince",
         name: "Prince",
-        photo: "https://www.pexels.com/photo/blur-boy-casual-close-up-428333/",
+        photo: "https://images.pexels.com/photos/428333/pexels-photo-428333.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             1,
             2,
@@ -107,7 +107,7 @@ var friendsArray = [
     {
         routeName: "selena",
         name: "Selena",
-        photo: "https://www.pexels.com/photo/adult-beautiful-casual-cute-372042/",
+        photo: "https://images.pexels.com/photos/372042/pexels-photo-372042.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             3,
             2,
@@ -124,7 +124,7 @@ var friendsArray = [
     {
         routeName: "elvis",
         name: "Elvis",
-        photo: "https://www.pexels.com/photo/angry-beard-blur-close-up-542282/",
+        photo: "https://images.pexels.com/photos/542282/pexels-photo-542282.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             1,
             1,
@@ -141,7 +141,7 @@ var friendsArray = [
     {
         routeName: "madusa",
         name: "Madusa",
-        photo: "https://www.pexels.com/photo/blond-blur-fashion-girl-415263/",
+        photo: "https://images.pexels.com/photos/415263/pexels-photo-415263.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             3,
             2,
@@ -158,7 +158,7 @@ var friendsArray = [
     {
         routeName: "zues",
         name: "Zues",
-        photo: "https://www.pexels.com/photo/close-up-face-facial-expression-fashion-447186/",
+        photo: "https://images.pexels.com/photos/447186/pexels-photo-447186.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         scores: [
             5,
             5,
