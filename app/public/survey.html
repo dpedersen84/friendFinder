@@ -203,7 +203,7 @@
             <h5 id="resultName"></h5>
         </div>
         <div class="modal-footer">
-            <a href="#" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#" class="modal-close waves-effect waves-green btn-flat" id="modal">Agree</a>
         </div>
     </div>
 
@@ -243,6 +243,11 @@ $(document).ready(function(){
                 $('#resultImage').prepend($('<img>', {id:'theImg',src:data.matchImage}))
             })
     });
+
+    $("#modal").on("click", function(event) {
+        location.reload();
+    })
+    
 });
 </script>
 </body>
