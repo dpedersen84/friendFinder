@@ -25,13 +25,20 @@
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav" id="mobile">
         <li><a href="/survey">Find Friend</a></li>
         <li><a href="/api/friends">Friends API</a></li>
         <li><a href="https://github.com/dpedersen84/friendFinder">Github Repo</a></li>
     </ul>
 
 <script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"></script>
+<script src="text/javascript">
+$(document).ready(function(){
+    // Materialize Init
+    $('.sidenav').sidenav();
+});
+</script>  
 </body>
 </html>

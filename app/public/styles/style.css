@@ -2,15 +2,16 @@
 .bg-image {
     background-image: url("../images/pexels-photo-1000445.jpeg");
 }
-/* Default Font */
+/* Default font */
 body { 
     font-family: 'Gothic A1', sans-serif;
 }
-/* Font for Logo */
+/* Font for logo */
 .brand-logo {
     font-family: 'Anton', sans-serif;
 }
 
+/* Match image resize */
 #theImg {
     max-height: 400px;
 }
